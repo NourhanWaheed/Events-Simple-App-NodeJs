@@ -5,7 +5,7 @@ const Student = require("./../Models/studentModel");
 module.exports.getAllStudents = (request, response, next) => {
     Student.find({})
         .then((data) => {
-            response.status(200).json({ data });
+            response.status(200).json( data );
         })
         .catch(error => {
             next(error);
@@ -43,7 +43,7 @@ module.exports.updateStudent = (request, response, next) => {
     //     throw new Error("Not Authorized");
     // }
 
-    Student.updateOne({ _id: request.body.id }, {
+    Student.updateOne({ _id: request.params }, {
         $set: {
             email: request.body.email,
             password: request.body.password
